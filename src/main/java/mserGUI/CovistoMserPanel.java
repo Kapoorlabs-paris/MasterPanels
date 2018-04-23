@@ -69,6 +69,9 @@ public class CovistoMserPanel {
 	public static final Insets insets = new Insets(10, 0, 0, 0);
 	public static final GridBagLayout layout = new GridBagLayout();
 	public static final GridBagConstraints c = new GridBagConstraints();
+	
+	
+	
 	public static boolean darktobright = false;
 	public static boolean brighttodark = true;
 	public static CheckboxGroup minormaxMser = new CheckboxGroup();
