@@ -66,10 +66,6 @@ public class CovistoMserPanel {
 	public final static JScrollBar minSizeS = new JScrollBar(Scrollbar.HORIZONTAL, minSizeInit, 10, 0, 10 + scrollbarSize);
 	public final static JScrollBar maxSizeS = new JScrollBar(Scrollbar.HORIZONTAL, maxSizeInit, 10, 0, 10 + scrollbarSize);
 	
-	public static final Insets insets = new Insets(10, 0, 0, 0);
-	public static final GridBagLayout layout = new GridBagLayout();
-	public static final GridBagConstraints c = new GridBagConstraints();
-	
 	
 	
 	public static boolean darktobright = false;
@@ -86,18 +82,9 @@ public class CovistoMserPanel {
 	
 	public static JPanel MserPanel() {
 		
-		MserPanel.setLayout(layout);
+		layoutManager.Setlayout.LayoutSetter(MserPanel);
 		
-		c.anchor = GridBagConstraints.BOTH;
-		c.ipadx = 35;
-
-		c.gridwidth = 10;
-		c.gridheight = 10;
-		c.gridy = 1;
-		c.gridx = 0;
-		
-		
-		Border mserborder = new CompoundBorder(new TitledBorder("MSER detection"), new EmptyBorder(c.insets));
+		Border mserborder = new CompoundBorder(new TitledBorder("MSER detection"), new EmptyBorder(layoutManager.Setlayout.c.insets));
 		Unstability_ScoreS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(Unstability_ScoreInit,
 				Unstability_ScoreMin, Unstability_ScoreMax, scrollbarSize));
 
@@ -155,12 +142,12 @@ public class CovistoMserPanel {
 		MserPanel.add(maxSizeS, new GridBagConstraints(0, 9, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		MserPanel.add(findminimaMser, new GridBagConstraints(0, 10, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
 		MserPanel.add(findmaximaMser, new GridBagConstraints(1, 10, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		MserPanel.add(AllMser, new GridBagConstraints(1, 12, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		MserPanel.setPreferredSize(new Dimension(SizeX, SizeYbig));
 
 		MserPanel.setBorder(mserborder);

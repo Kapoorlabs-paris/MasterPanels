@@ -22,9 +22,6 @@ public class CovistoDogPanel {
 	public static JPanel DogPanel = new JPanel();
 	
 	
-	public static final Insets insets = new Insets(10, 0, 0, 0);
-	public static final GridBagLayout layout = new GridBagLayout();
-	public static final GridBagConstraints c = new GridBagConstraints();
 	public static final int scrollbarSize = 1000;
 	public static boolean lookForMaxima = true;
 	public static boolean lookForMinima = false;
@@ -52,7 +49,7 @@ public class CovistoDogPanel {
 	public static JPanel DogPanel() {
 		
 		
-		DogPanel.setLayout(layout);
+		layoutManager.Setlayout.LayoutSetter(DogPanel);
 		sigmaslider.setValue(
 				scrollbar.Utility.computeScrollbarPositionFromValue(sigmaInit, sigmaMin, sigmaMax, scrollbarSize));
 		sigmaText = new Label("Approximate object size = " + sigma, Label.CENTER);
@@ -66,25 +63,25 @@ public class CovistoDogPanel {
 				thresholdMax, scrollbarSize);
 		thresholdText = new Label("Approximate peak intensity " + threshold, Label.CENTER);
 		Border dogborder = new CompoundBorder(new TitledBorder("Difference of Gaussian detection"),
-				new EmptyBorder(c.insets));
+				new EmptyBorder(layoutManager.Setlayout.c.insets));
 		DogPanel.add(sigmaText, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
 		DogPanel.add(sigmaslider, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		DogPanel.add(thresholdText, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
 		DogPanel.add(thresholdslider, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
 		DogPanel.add(findminima, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
 		DogPanel.add(findmaxima, new GridBagConstraints(2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		DogPanel.add(AllDog, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, insets, 0, 0));
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		DogPanel.setBorder(dogborder);
 		
 		
