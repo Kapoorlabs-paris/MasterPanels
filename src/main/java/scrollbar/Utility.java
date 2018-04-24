@@ -1,6 +1,5 @@
 package scrollbar;
 
-import mpicbg.imglib.util.Util;
 
 public class Utility {
 
@@ -18,12 +17,12 @@ public class Utility {
 
 	public static int computeScrollbarPositionFromValue(final float sigma, final float min, final float max,
 			final int scrollbarSize) {
-		return Util.round(((sigma - min) / (max - min)) * scrollbarSize);
+		return Math.round(((sigma - min) / (max - min)) * scrollbarSize);
 	}
 
 	public static int computeIntScrollbarPositionFromValue(final float thirdDimensionslider, final float min,
 			final float max, final int scrollbarSize) {
-		return Util.round(((thirdDimensionslider - min) / (max - min)) * max);
+		return Math.round(((thirdDimensionslider - min) / (max - min)) * max);
 	}
 	
 	public static float computeSigma2(final float sigma1, final int sensitivity) {
