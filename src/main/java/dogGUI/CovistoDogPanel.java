@@ -46,8 +46,31 @@ public class CovistoDogPanel {
 	public static JButton AllDog = new JButton("DOG in 3D/4D"); 
 	public static final String sigmastring = "Approximate object size";
 	public static final String thresholdstring = "Threshold peak intensity";
+	
+	public static double getInitialSigma() {
+		return sigma;
+	}
+
+	public static void setInitialSigma(final float value) {
+		sigma = value;
+		sigmaInit = scrollbar.Utility.computeScrollbarPositionFromValue(sigma, sigmaMin, sigmaMax, scrollbarSize);
+	}
+
+	public static double getInitialThreshold() {
+		return threshold;
+	}
+
+	public static void setInitialThreshold(final float value) {
+		threshold = value;
+		thresholdInit = scrollbar.Utility.computeScrollbarPositionFromValue(threshold, thresholdMin, thresholdMax, scrollbarSize);
+	}
+
+	
+	
+	
 	public static JPanel DogPanel() {
-		
+		setInitialSigma(sigmaInit);
+		setInitialThreshold(thresholdInit);
 		
 		layoutManager.Setlayout.LayoutSetter(DogPanel);
 		sigmaslider.setValue(

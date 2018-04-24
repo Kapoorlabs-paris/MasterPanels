@@ -30,6 +30,12 @@ public class CovistoSnakePanel {
 	public static double Threshold_dist_negative = 10;
 	public static double Inv_alpha_min = 0.2;
 	public static double Inv_alpha_max = 10.0;
+	public static double Mul_factor = 0.99;
+	// maximum displacement
+	public static double force = 10;
+	// regulari1ation factors, min and max
+	public static double reg = 5;
+	public static double regmin, regmax;
 	public static final JButton Singlesnake = new JButton("Apply snakes to CurrentView");
 	public static JButton AllSnake = new JButton("Snake in 3D/4D");
 	
@@ -38,6 +44,10 @@ public class CovistoSnakePanel {
 	
 	
 	public static JPanel SnakePanel(int ndims) {
+		
+		regmin = reg / 2.0;
+		regmax = reg;
+		
 		
 		layoutManager.Setlayout.LayoutSetter(SnakePanel);
 		Border snakeborder = new CompoundBorder(new TitledBorder("Active Contour refinement"),

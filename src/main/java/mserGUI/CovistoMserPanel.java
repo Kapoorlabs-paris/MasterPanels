@@ -80,10 +80,63 @@ public class CovistoMserPanel {
 	public static int SizeY = 200;
 	public static int SizeYbig = 500;
 	
+	
+	public static void setInitialDelta(final float value) {
+		delta = value;
+		deltaInit = scrollbar.Utility.computeScrollbarPositionFromValue(delta, deltaMin, deltaMax, scrollbarSize);
+	}
+	
+	public static void setInitialmaxSize(final int value) {
+		maxSize = value;
+		maxSizeInit = scrollbar.Utility.computeScrollbarPositionFromValue(maxSize, maxSizemin, maxSizemax, scrollbarSize);
+	}
+	public static void setInitialminDiversity(final float value) {
+		minDiversity = value;
+		minDiversityInit = scrollbar.Utility.computeScrollbarPositionFromValue(minDiversity, minDiversityMin, minDiversityMax,
+				scrollbarSize);
+	}
+
+	public static double getInitialminDiversity(final float value) {
+
+		return minDiversity;
+
+	}
+
+	public static void setInitialminSize(final int value) {
+		minSize = value;
+		minSizeInit = scrollbar.Utility.computeScrollbarPositionFromValue(minSize, minSizemin, minSizemax, scrollbarSize);
+	}
+	public static void setInitialUnstability_Score(final float value) {
+		Unstability_Score = value;
+		Unstability_ScoreInit = scrollbar.Utility.computeScrollbarPositionFromValue(Unstability_Score, Unstability_ScoreMin,
+				Unstability_ScoreMax, scrollbarSize);
+	}
+	public static double getInitialminSize(final int value) {
+
+		return minSize;
+
+	}
+
+	public double getInitialDelta(final float value) {
+
+		return delta;
+
+	}
+
+	public static double getInitialmaxSize(final int value) {
+
+		return maxSize;
+
+	}
 	public static JPanel MserPanel() {
 		
 		layoutManager.Setlayout.LayoutSetter(MserPanel);
-		
+		setInitialUnstability_Score(Unstability_ScoreInit);
+		setInitialDelta(deltaInit);
+
+		setInitialminDiversity(minDiversityInit);
+		setInitialmaxSize(maxSizeInit);
+		setInitialminSize(minSizeInit);
 		Border mserborder = new CompoundBorder(new TitledBorder("MSER detection"), new EmptyBorder(layoutManager.Setlayout.c.insets));
 		Unstability_ScoreS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(Unstability_ScoreInit,
 				Unstability_ScoreMin, Unstability_ScoreMax, scrollbarSize));
