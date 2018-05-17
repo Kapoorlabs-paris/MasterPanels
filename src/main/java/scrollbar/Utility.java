@@ -1,5 +1,6 @@
 package scrollbar;
 
+import javax.swing.JProgressBar;
 
 public class Utility {
 
@@ -44,4 +45,51 @@ public class Utility {
 		return sigma;
 	}
 	
+	public static void SetProgressBar(JProgressBar jpb, double percent) {
+
+		jpb.setValue((int) Math.round(percent));
+		jpb.setOpaque(true);
+		jpb.setStringPainted(true);
+		jpb.setString("Finding MT ends");
+
+	}
+	
+	
+	public static void SetProgressBar(JProgressBar jpb, double percent, String message) {
+
+		jpb.setValue((int) Math.round(percent));
+		jpb.setOpaque(true);
+		jpb.setStringPainted(true);
+		jpb.setString(message);
+
+	}
+
+	public static void SetProgressBar(JProgressBar jpb) {
+		jpb.setValue(0);
+		jpb.setIndeterminate(true);
+		jpb.setOpaque(true);
+		jpb.setStringPainted(true);
+		jpb.setString("Pre-processing Image");
+
+	}
+
+	public static void SetProgressBarTime(JProgressBar jpb, double percent, int framenumber, int thirdDimsize) {
+
+		jpb.setValue((int) percent);
+		jpb.setOpaque(true);
+		jpb.setStringPainted(true);
+		jpb.setString("Time point = " + framenumber + "/" + thirdDimsize);
+
+	}
+
+	public static void SetProgressBarTime(JProgressBar jpb, double percent, int framenumber, int thirdDimsize,
+			String message) {
+
+		jpb.setValue((int) percent);
+		jpb.setOpaque(true);
+		jpb.setStringPainted(true);
+		jpb.setString(message + "= " + framenumber + "/" + thirdDimsize);
+
+	}
+
 }

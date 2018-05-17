@@ -39,6 +39,8 @@ public class CovistoWatershedPanel {
 				scrollbarSize);
 	}
 
+	public static boolean disttransform = true;
+	
 	public static final Checkbox displayWater = new Checkbox("Display Watershed image", true);
 
 	public static final Checkbox displayBinary = new Checkbox("Display Binary image");
@@ -46,7 +48,14 @@ public class CovistoWatershedPanel {
 	public static final Checkbox displayDist = new Checkbox("Display DTimage");
 
 	public static final Checkbox autothreshold = new Checkbox("Auto Thresholding");
+	
+	public static final Checkbox dodist = new Checkbox("Distance transformed Watershed", disttransform);
+	
 	public static final JButton Water3D = new JButton("Watershed in 3D/4D");
+	
+	public static final JButton tryWater = new JButton("Watershed Current");
+	
+	
 	
 	public static JPanel WaterPanel() {
 		
@@ -62,7 +71,8 @@ public class CovistoWatershedPanel {
 		watertext = new Label(waterstring + " = " + thresholdWater, Label.CENTER);
 		WaterPanel.add(watertext, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
-
+		WaterPanel.add(dodist, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		WaterPanel.add(thresholdWaterslider, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
@@ -75,6 +85,9 @@ public class CovistoWatershedPanel {
 		WaterPanel.add(autothreshold, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		WaterPanel.add(Water3D, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
+		
+		WaterPanel.add(tryWater, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		WaterPanel.setBorder(waterborder);
 		
