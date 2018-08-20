@@ -59,7 +59,7 @@ public class CovistoKalmanPanel {
 			10 + scrollbarSize);
 	public static final JScrollBar alphaS = new JScrollBar(Scrollbar.HORIZONTAL, alphaInit, 10, 0, 10 + scrollbarSize);
 	public static final JScrollBar betaS = new JScrollBar(Scrollbar.HORIZONTAL, betaInit, 10, 0, 10 + scrollbarSize);
-	public static final JButton Timetrack = new JButton("Link 3D objects in T");
+	public static final JButton Timetrack = new JButton("Create Links");
 	
 	public static final JScrollBar maxSearchKalman = new JScrollBar(Scrollbar.HORIZONTAL, maxSearchInit, 10, 0, 10 + scrollbarSize);
 	

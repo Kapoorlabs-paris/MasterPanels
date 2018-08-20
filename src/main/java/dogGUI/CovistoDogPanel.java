@@ -32,9 +32,9 @@ public class CovistoDogPanel {
 	public static CheckboxGroup minormax = new CheckboxGroup();
 	public static final Checkbox findminima = new Checkbox("Locate Minima", minormax, lookForMinima);
 	public static final Checkbox findmaxima = new Checkbox("Locate Maxima", minormax, lookForMaxima);
-	public static float thresholdMin = 0;
+	public static float thresholdMin = 1f;
 	public static float thresholdMax = 255f;
-	public static  int thresholdInit = 0;
+	public static  int thresholdInit = 1;
 	public static float sigma2 = 1.1f;
 	public static float threshold = 1f;
 	public static int sigmasliderInit = 0;
@@ -45,7 +45,7 @@ public class CovistoDogPanel {
 	public static Label thresholdText = new Label("Approximate peak intensity " + thresholdInit, Label.CENTER);
 	public static JButton AllDog = new JButton("DOG in 3D/4D"); 
 	public static final String sigmastring = "Approximate object size";
-	public static final String thresholdstring = "Threshold peak intensity";
+	public static final String thresholdstring = "Approximate peak intensity";
 	
 	public static double getInitialSigma() {
 		return sigma;
@@ -75,7 +75,7 @@ public class CovistoDogPanel {
 		layoutManager.Setlayout.LayoutSetter(DogPanel);
 		sigmaslider.setValue(
 				scrollbar.Utility.computeScrollbarPositionFromValue(sigmaInit, sigmaMin, sigmaMax, scrollbarSize));
-		sigmaText = new Label("Approximate object size = " + sigma, Label.CENTER);
+		
 		thresholdslider.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(thresholdsliderInit,
 				thresholdMin, thresholdMax, scrollbarSize));
 
@@ -84,6 +84,8 @@ public class CovistoDogPanel {
 
 		threshold = scrollbar.Utility.computeValueFromScrollbarPosition(thresholdslider.getValue(), thresholdMin,
 				thresholdMax, scrollbarSize);
+		
+		sigmaText = new Label("Approximate object size = " + sigma, Label.CENTER);
 		thresholdText = new Label("Approximate peak intensity " + threshold, Label.CENTER);
 		Border dogborder = new CompoundBorder(new TitledBorder("Difference of Gaussian detection"),
 				new EmptyBorder(layoutManager.Setlayout.c.insets));
