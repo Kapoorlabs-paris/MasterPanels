@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class Setlayout {
 
 	
-	public final static Insets insets = new Insets(10, 0, 0, 0);
+	public final static Insets insets = new Insets(10, 10, 0, 10);
 	public final static GridBagLayout layout = new GridBagLayout();
 	public final static GridBagConstraints c = new GridBagConstraints();
 	
@@ -17,7 +17,7 @@ public class Setlayout {
 		
 		panel.setLayout(layout);
 		c.anchor = GridBagConstraints.BOTH;
-		c.ipadx = 35;
+		c.ipadx = 5;
 
 		c.gridwidth = 10;
 		c.gridheight = 10;

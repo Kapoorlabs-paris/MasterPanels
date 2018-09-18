@@ -46,13 +46,13 @@ public class SliderBoxGUI {
 	
 	
 
-	combosliderbox.add(valueText, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+	combosliderbox.add(valueText, new GridBagConstraints(0, 0, 2, 1, 0.0, 0.0, GridBagConstraints.WEST,
 			GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
-	combosliderbox.add(valueslider, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+	combosliderbox.add(valueslider, new GridBagConstraints(0, 1, 2, 1, 0.0, 0.0, GridBagConstraints.WEST,
 			GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
-	combosliderbox.add(inputFieldvalue, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+	combosliderbox.add(inputFieldvalue, new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0, GridBagConstraints.WEST,
 			GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
 	

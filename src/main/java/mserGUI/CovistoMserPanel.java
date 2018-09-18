@@ -30,7 +30,7 @@ public class CovistoMserPanel {
 
 	public static int minSizeInit = 50;
 	public static int maxSizeInit = 500;
-	public static long maxSize = maxSizeInit;
+	public static long maxSize = 3000;
 	public static long minSize = minSizeInit;
 	public static long minSizemin = 0;
 	public static long minSizemax = 1000;
@@ -55,8 +55,8 @@ public class CovistoMserPanel {
 	public final static Label Unstability_ScoreText = new Label(Unstability_Scorestring + " = " + Unstability_ScoreInit,
 			Label.CENTER);
 	public final static Label minDivText = new Label(minDivstring + " = " + minDiversityInit, Label.CENTER);
-	public  final static Label minSizeText = new Label(minSizestring + " = " + minSizeInit, Label.CENTER);
-	public final static Label maxSizeText = new Label(maxSizestring + " = " + maxSizeInit, Label.CENTER);
+	public  final static Label minSizeText = new Label(minSizestring + " = " + minSize, Label.CENTER);
+	public final static Label maxSizeText = new Label(maxSizestring + " = " + maxSize, Label.CENTER);
 
 	public final static JScrollBar deltaS = new JScrollBar(Scrollbar.HORIZONTAL, deltaInit, 10, 0, 10 + scrollbarSize);
 	public final static JScrollBar Unstability_ScoreS = new JScrollBar(Scrollbar.HORIZONTAL, Unstability_ScoreInit, 10, 0,
@@ -131,12 +131,7 @@ public class CovistoMserPanel {
 	public static JPanel MserPanel() {
 		
 		layoutManager.Setlayout.LayoutSetter(MserPanel);
-		setInitialUnstability_Score(Unstability_ScoreInit);
-		setInitialDelta(deltaInit);
-
-		setInitialminDiversity(minDiversityInit);
-		setInitialmaxSize(maxSizeInit);
-		setInitialminSize(minSizeInit);
+	
 		Border mserborder = new CompoundBorder(new TitledBorder("MSER detection"), new EmptyBorder(layoutManager.Setlayout.c.insets));
 		Unstability_ScoreS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(Unstability_ScoreInit,
 				Unstability_ScoreMin, Unstability_ScoreMax, scrollbarSize));
@@ -144,10 +139,10 @@ public class CovistoMserPanel {
 		minDiversityS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(minDiversityInit,
 				minDiversityMin, minDiversityMax, scrollbarSize));
 
-		maxSizeS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(maxSizeInit, maxSizemin, maxSizemax,
+		maxSizeS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(maxSize, maxSizemin, maxSizemax,
 				scrollbarSize));
 
-		minSizeS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(minSizeInit, minSizemin, minSizemax,
+		minSizeS.setValue(scrollbar.Utility.computeScrollbarPositionFromValue(minSize, minSizemin, minSizemax,
 				scrollbarSize));
 
 		deltaS.setValue(

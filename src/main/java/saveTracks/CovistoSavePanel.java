@@ -21,7 +21,7 @@ public class CovistoSavePanel {
 	public static JButton SaveAllbutton = new JButton("Save All Tracks");
 	
 	public static JLabel inputLabel = new JLabel("Filename:");
-	public static TextField inputField = new TextField();
+	public static TextField inputField;
 	public static final JButton ChooseDirectory = new JButton("Choose Directory to save results in");
 	public static TextField inputtrackField;
 	
@@ -29,6 +29,7 @@ public class CovistoSavePanel {
 	
 	public static JPanel SavePanel() {
 		inputtrackField = new TextField(5);
+		inputField = new TextField(5);
 		layoutManager.Setlayout.LayoutSetter(SavePanel);
 		Border origborder = new CompoundBorder(new TitledBorder("Enter filename for results files"),
 				new EmptyBorder(layoutManager.Setlayout.c.insets));

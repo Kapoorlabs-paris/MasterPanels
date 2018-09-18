@@ -25,7 +25,7 @@ public class CovistoDogPanel {
 	public static final int scrollbarSize = 1000;
 	public static boolean lookForMaxima = true;
 	public static boolean lookForMinima = false;
-	public static int sigmaInit = 30;
+	public static int sigmaInit = 10;
 	public static float sigma = sigmaInit;
 	public static float sigmaMin = 1f;
 	public static float sigmaMax = 100f;
@@ -38,7 +38,7 @@ public class CovistoDogPanel {
 	public static float sigma2 = 1.1f;
 	public static float threshold = 1f;
 	public static int sigmasliderInit = 0;
-	public static int thresholdsliderInit = 125;
+	public static int thresholdsliderInit = 5;
 	public static Label sigmaText = new Label("Approximate object size = " + sigmaInit, Label.CENTER);
 	public static JScrollBar sigmaslider = new JScrollBar(Scrollbar.HORIZONTAL, sigmaInit, 10, 0, scrollbarSize + 10);
 	public static JScrollBar thresholdslider = new JScrollBar(Scrollbar.HORIZONTAL, thresholdInit, 10, 0, 10 + scrollbarSize);
@@ -69,8 +69,7 @@ public class CovistoDogPanel {
 	
 	
 	public static JPanel DogPanel() {
-		setInitialSigma(sigmaInit);
-		setInitialThreshold(thresholdInit);
+	
 		
 		layoutManager.Setlayout.LayoutSetter(DogPanel);
 		sigmaslider.setValue(

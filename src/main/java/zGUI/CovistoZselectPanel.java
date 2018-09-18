@@ -48,7 +48,7 @@ public class CovistoZselectPanel {
 		inputFieldZ = new TextField(5);
 		inputFieldZ.setText(Integer.toString(thirdDimension));
 		
-		Border zborder = new CompoundBorder(new TitledBorder("Select Z"), new EmptyBorder( layoutManager.Setlayout.insets));
+		Border zborder = new CompoundBorder(new TitledBorder("Select Z / T"), new EmptyBorder( layoutManager.Setlayout.insets));
 		if (ndims > 3)
 			Zselect.add(zText, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 					GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));

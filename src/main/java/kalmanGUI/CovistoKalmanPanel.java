@@ -28,7 +28,6 @@ public class CovistoKalmanPanel {
 	public static final String betastring = "Weightage for pixel ratio based cost";
 	public static int alphaInit = 1;
 	public static int betaInit = 0;
-	public static int maxSearchInit = 100;
 	public static int missedframes = 20;
 	public static float initialSearchradius = 10;
 	public static int initialSearchradiusInit = (int) initialSearchradius;
@@ -40,7 +39,7 @@ public class CovistoKalmanPanel {
 	public static float betaMax = 1;
 	public static float alpha = 0.5f;
 	public static float beta = 0.5f;
-	public static float maxSearchradius = 15;
+	public static float maxSearchradius = 25;
 	public static int maxSearchradiusInit = (int) maxSearchradius;
 	public static float maxSearchradiusMin = 1;
 	public static float maxSearchradiusMax = 1000;
@@ -51,17 +50,17 @@ public class CovistoKalmanPanel {
 	public static Label alphaText = new Label(alphastring + " = " + alphaInit, Label.CENTER);
 	public static Label betaText = new Label(betastring + " = " + betaInit, Label.CENTER);
 	
-	public static Label maxSearchTextKalman = new Label(maxSearchstringKalman + " = " + maxSearchInit, Label.CENTER);
+	public static Label maxSearchTextKalman = new Label(maxSearchstringKalman + " = " + maxSearchradiusInit, Label.CENTER);
 	public static Label iniSearchText = new Label(initialSearchstring + " = " + initialSearchradiusInit, Label.CENTER);
 
-	public static final JScrollBar maxSearchSS = new JScrollBar(Scrollbar.HORIZONTAL, maxSearchInit, 10, 0, 10 + scrollbarSize);
+	public static final JScrollBar maxSearchSS = new JScrollBar(Scrollbar.HORIZONTAL, maxSearchradiusInit, 10, 0, 10 + scrollbarSize);
 	public static final JScrollBar initialSearchS = new JScrollBar(Scrollbar.HORIZONTAL, initialSearchradiusInit, 10, 0,
 			10 + scrollbarSize);
 	public static final JScrollBar alphaS = new JScrollBar(Scrollbar.HORIZONTAL, alphaInit, 10, 0, 10 + scrollbarSize);
 	public static final JScrollBar betaS = new JScrollBar(Scrollbar.HORIZONTAL, betaInit, 10, 0, 10 + scrollbarSize);
 	public static final JButton Timetrack = new JButton("Create Links");
 	
-	public static final JScrollBar maxSearchKalman = new JScrollBar(Scrollbar.HORIZONTAL, maxSearchInit, 10, 0, 10 + scrollbarSize);
+	public static final JScrollBar maxSearchKalman = new JScrollBar(Scrollbar.HORIZONTAL, maxSearchradiusInit, 10, 0, 10 + scrollbarSize);
 	
 	
 	public static void setInitialAlpha(final float value) {
