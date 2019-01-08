@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Label;
 import java.awt.Scrollbar;
+import java.awt.TextField;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -23,6 +24,10 @@ public class CovistoDogPanel {
 	
 	
 	public static final int scrollbarSize = 1000;
+    public static Label removeText = new Label("Distance Threshold ", Label.CENTER);
+	
+	public static TextField inputFieldSpot;
+	public static double distthreshold = 10;
 	public static boolean lookForMaxima = true;
 	public static boolean lookForMinima = false;
 	public static int sigmaInit = 10;
@@ -72,6 +77,11 @@ public class CovistoDogPanel {
 	
 		
 		layoutManager.Setlayout.LayoutSetter(DogPanel);
+		
+		inputFieldSpot = new TextField(5);
+		inputFieldSpot.setText(Double.toString(distthreshold));
+		
+		
 		sigmaslider.setValue(
 				scrollbar.Utility.computeScrollbarPositionFromValue(sigmaInit, sigmaMin, sigmaMax, scrollbarSize));
 		
@@ -103,6 +113,12 @@ public class CovistoDogPanel {
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 
 		DogPanel.add(findmaxima, new GridBagConstraints(2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
+		
+		DogPanel.add(removeText, new GridBagConstraints(0, 5, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
+		
+		DogPanel.add(inputFieldSpot, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		DogPanel.add(AllDog, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
