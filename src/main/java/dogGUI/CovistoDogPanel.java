@@ -25,12 +25,18 @@ public class CovistoDogPanel {
 	
 	public static final int scrollbarSize = 1000;
     public static Label removeText = new Label("Distance Threshold ", Label.CENTER);
-	
-	public static TextField inputFieldSpot;
+    public static Label removetimeText = new Label("Time-Dist Threshold ", Label.CENTER);
+    public static Label timeblockText = new Label("Time Skip ", Label.CENTER);
+    
+    
+	public static TextField inputFieldSpot, inputtimedist, inputtimeskip;
 	public static double distthreshold = 10;
+	public static double timethreshold = 10;
+	public static int timeblock = 1;
+	
 	public static boolean lookForMaxima = true;
 	public static boolean lookForMinima = false;
-	public static int sigmaInit = 10;
+	public static int sigmaInit = 1;
 	public static float sigma = sigmaInit;
 	public static float sigmaMin = 1f;
 	public static float sigmaMax = 100f;
@@ -39,7 +45,7 @@ public class CovistoDogPanel {
 	public static final Checkbox findmaxima = new Checkbox("Locate Maxima", minormax, lookForMaxima);
 	public static float thresholdMin = 1f;
 	public static float thresholdMax = 255f;
-	public static  int thresholdInit = 1;
+	public static  int thresholdInit = 2;
 	public static float sigma2 = 1.1f;
 	public static float threshold = 1f;
 	public static int sigmasliderInit = 0;
@@ -81,6 +87,12 @@ public class CovistoDogPanel {
 		inputFieldSpot = new TextField(5);
 		inputFieldSpot.setText(Double.toString(distthreshold));
 		
+		inputtimedist = new TextField(5);
+		inputtimedist.setText(Double.toString(timethreshold));
+		
+		inputtimeskip = new TextField(5);
+		inputtimeskip.setText(Double.toString(timeblock));
+		
 		
 		sigmaslider.setValue(
 				scrollbar.Utility.computeScrollbarPositionFromValue(sigmaInit, sigmaMin, sigmaMax, scrollbarSize));
@@ -118,9 +130,26 @@ public class CovistoDogPanel {
 		DogPanel.add(removeText, new GridBagConstraints(0, 5, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		
-		DogPanel.add(inputFieldSpot, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+		DogPanel.add(removetimeText, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
-		DogPanel.add(AllDog, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+		
+		DogPanel.add(timeblockText, new GridBagConstraints(0, 7, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
+		
+		DogPanel.add(inputFieldSpot, new GridBagConstraints(2, 5, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
+		
+		DogPanel.add(inputtimedist, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
+		
+		
+		DogPanel.add(inputtimeskip, new GridBagConstraints(2, 7, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
+		
+		
+		
+		
+		DogPanel.add(AllDog, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, layoutManager.Setlayout.insets, 0, 0));
 		DogPanel.setBorder(dogborder);
 		
