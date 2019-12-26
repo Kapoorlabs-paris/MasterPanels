@@ -29,7 +29,7 @@ public class CovistoKalmanPanel {
 	public static int alphaInit = 1;
 	public static int betaInit = 0;
 	public static int missedframes = 20;
-	public static float initialSearchradius = 10;
+	public static float initialSearchradius = 100;
 	public static int initialSearchradiusInit = (int) initialSearchradius;
 	public static float initialSearchradiusMin = 1;
 	public static float initialSearchradiusMax = 1000;
@@ -39,7 +39,7 @@ public class CovistoKalmanPanel {
 	public static float betaMax = 1;
 	public static float alpha = 0.5f;
 	public static float beta = 0.5f;
-	public static float maxSearchradius = 25;
+	public static float maxSearchradius = 100;
 	public static int maxSearchradiusInit = (int) maxSearchradius;
 	public static float maxSearchradiusMin = 1;
 	public static float maxSearchradiusMax = 1000;

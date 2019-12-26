@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.scijava</groupId>
         <artifactId>pom-scijava</artifactId>
-        <version>18.1.0</version>
+        <version>25.0.0</version>
         <relativePath />
     </parent>
     
@@ -79,8 +79,7 @@
         <license.licenseName>gpl_v3</license.licenseName>
         <license.copyrightOwners>MasterPanels developers.</license.copyrightOwners>
         
-        <commons-io.version>2.5</commons-io.version>
-        <poi.version>3.12</poi.version>
+     <jfreesvg.version>3.3</jfreesvg.version>
         
         <!-- NB: Deploy releases to the ImageJ Maven repository. -->
         <releaseProfiles>deploy-to-imagej</releaseProfiles>
@@ -138,8 +137,7 @@
             <!-- NB: dependency:analyze erroneously flags this, but it's required -->
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>${commons-io.version}</version>
-        </dependency>
+            </dependency>
         <dependency>
             <groupId>gov.nist.math</groupId>
             <artifactId>jama</artifactId>
@@ -148,16 +146,14 @@
             <groupId>mpicbg</groupId>
             <artifactId>mpicbg</artifactId>
         </dependency>
-        <dependency>
-            <groupId>net.sf.jgrapht</groupId>
-            <artifactId>jgrapht</artifactId>
-        </dependency>
-        <dependency>
+ 	<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-core</artifactId>
+			<version>${jgrapht.version}</version>
+		</dependency>
             <!-- NB: dependency:analyze erroneously flags this, but it's required -->
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
+
+
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>jfreechart</artifactId>
