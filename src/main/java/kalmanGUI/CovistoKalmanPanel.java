@@ -45,8 +45,11 @@ public class CovistoKalmanPanel {
 	public static float maxSearchradiusMax = 1000;
 	
 	public static int maxframegap = 10;
+	public static int trackduration = 2;
 	public static Label lostlabel;
+	public static Label mintracklength;
 	public static TextField lostframe;
+	public static TextField tracklength;
 	public static Label alphaText = new Label(alphastring + " = " + alphaInit, Label.CENTER);
 	public static Label betaText = new Label(betastring + " = " + betaInit, Label.CENTER);
 	
@@ -109,7 +112,12 @@ public class CovistoKalmanPanel {
 		layoutManager.Setlayout.LayoutSetter(KalmanPanel);
 		lostframe = new TextField(1);
 		lostframe.setText(Integer.toString(maxframegap));
+		
+		tracklength = new TextField(1);
+		tracklength.setText(Integer.toString(trackduration));
+		
 		lostlabel = new Label("Allow link loosing for #frames");
+		mintracklength =  new Label("Minimum BudTrack length in timeframes");
 		alphaText = new Label(alphastring + " = " + alpha, Label.CENTER);
 		betaText = new Label(betastring + " = " + beta, Label.CENTER);
 		
@@ -151,6 +159,12 @@ public class CovistoKalmanPanel {
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		KalmanPanel.add(lostframe, new GridBagConstraints(5, 1, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		
+		KalmanPanel.add(mintracklength, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		KalmanPanel.add(tracklength, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		
 		KalmanPanel.add(maxSearchTextKalman, new GridBagConstraints(5, 2, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		KalmanPanel.add(maxSearchKalman, new GridBagConstraints(5, 3, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
