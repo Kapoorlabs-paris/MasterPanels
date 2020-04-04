@@ -22,31 +22,28 @@ public class CovistoOneChFileLoader {
 		this.blankimageNames = blankimageNames;
 	}
 	
-	public  JPanel panelTwoChannel = new JPanel();
-	public  boolean twochannel = false;
+	public  JPanel panelSingleChannel = new JPanel();
 	
 	public  JComboBox<String> ChooseImage;
-	public  JComboBox<String> ChoosesecImage;
-	public  JPanel TwoChannelOption() {
+	public  JPanel SingleChannelOption() {
 		
 		
 		
-		layoutManager.Setlayout.LayoutSetter(panelTwoChannel);
+		layoutManager.Setlayout.LayoutSetter(panelSingleChannel);
 		ChooseImage = new JComboBox<String>(blankimageNames);
-		ChoosesecImage = new JComboBox<String>(blankimageNames);
 		 Border chooseoriginalfile = new CompoundBorder(new TitledBorder(bordertitle),
 				new EmptyBorder(layoutManager.Setlayout.c.insets));
 		 
 			
 		
-		 panelTwoChannel.add(ChooseImage, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
+		 panelSingleChannel.add(ChooseImage, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
 					GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		
-		 panelTwoChannel.setBorder(chooseoriginalfile);
+		 panelSingleChannel.setBorder(chooseoriginalfile);
 		 
 		 
 		 
-		 return panelTwoChannel;
+		 return panelSingleChannel;
 		
 	}
 	

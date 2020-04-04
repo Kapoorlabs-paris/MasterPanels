@@ -45,9 +45,10 @@ public class CovistoKalmanPanel {
 	public static float maxSearchradiusMax = 1000;
 	
 	public static int maxframegap = 10;
-	public static int trackduration = 2;
+	public static int trackduration = 50;
 	public static Label lostlabel;
 	public static Label mintracklength;
+	
 	public static TextField lostframe;
 	public static TextField tracklength;
 	public static Label alphaText = new Label(alphastring + " = " + alphaInit, Label.CENTER);
@@ -63,7 +64,7 @@ public class CovistoKalmanPanel {
 	public static final JScrollBar betaS = new JScrollBar(Scrollbar.HORIZONTAL, betaInit, 10, 0, 10 + scrollbarSize);
 	public static final JButton Skeletontime = new JButton("Skeletonize Buddies");
 	public static final JButton Timetrack = new JButton("Track Buddies");
-	
+	public static final JButton Restart = new JButton("Restart");
 	public static final JScrollBar maxSearchKalman = new JScrollBar(Scrollbar.HORIZONTAL, maxSearchradiusInit, 10, 0, 10 + scrollbarSize);
 	
 	
@@ -117,7 +118,9 @@ public class CovistoKalmanPanel {
 		tracklength.setText(Integer.toString(trackduration));
 		
 		lostlabel = new Label("Allow link loosing for #frames");
-		mintracklength =  new Label("Minimum BudTrack length in timeframes");
+		mintracklength =  new Label("Minimum BudTrack length as percent of timeframes");
+		
+		
 		alphaText = new Label(alphastring + " = " + alpha, Label.CENTER);
 		betaText = new Label(betastring + " = " + beta, Label.CENTER);
 		
@@ -165,9 +168,12 @@ public class CovistoKalmanPanel {
 		KalmanPanel.add(tracklength, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		
-		KalmanPanel.add(maxSearchTextKalman, new GridBagConstraints(5, 2, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
-		KalmanPanel.add(maxSearchKalman, new GridBagConstraints(5, 3, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		//KalmanPanel.add(maxSearchTextKalman, new GridBagConstraints(5, 2, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+	//	KalmanPanel.add(maxSearchKalman, new GridBagConstraints(5, 3, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+	//			GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		
+		KalmanPanel.add(Restart, new GridBagConstraints(5, 2, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		KalmanPanel.add(Skeletontime, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
