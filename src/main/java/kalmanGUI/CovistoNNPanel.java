@@ -14,20 +14,21 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-public class CovistoKalmanPanel {
+public class CovistoNNPanel {
 
 
 	public static final int scrollbarSize = 1000;
 	public static JPanel KalmanPanel = new JPanel();
 	
 	public static final String maxSearchstringKalman = "Maximum search radius";
-	public static final String initialSearchstring = "Initial search radius (um)";
+	public static final String initialSearchstring = "Initial search radius";
 	
 	
-	public static final String alphastring = "Distance/Angle cost ratio";
+	public static final String alphastring = "Weightage for distance based cost";
 	public static final String betastring = "Weightage for pixel ratio based cost";
 	public static int alphaInit = 1;
 	public static int betaInit = 0;
+	public static int missedframes = 20;
 	public static float initialSearchradius = 100;
 	public static int initialSearchradiusInit = (int) initialSearchradius;
 	public static float initialSearchradiusMin = 1;
@@ -43,8 +44,8 @@ public class CovistoKalmanPanel {
 	public static float maxSearchradiusMin = 1;
 	public static float maxSearchradiusMax = 1000;
 	
-	public static int maxframegap = 3;
-	public static int trackduration = 10;
+	public static int maxframegap = 10;
+	public static int trackduration = 50;
 	public static Label lostlabel;
 	public static Label mintracklength;
 	
@@ -140,43 +141,45 @@ public class CovistoKalmanPanel {
 				scrollbar.Utility.computeScrollbarPositionFromValue(betaInit, betaMin, betaMax, scrollbarSize));
 		
 		
-		Border Kalmanborder = new CompoundBorder(new TitledBorder("Kalman Filter Search in T"),
+		Border Kalmanborder = new CompoundBorder(new TitledBorder("Skeletonize n track buds"),
 				new EmptyBorder(layoutManager.Setlayout.c.insets));
-		KalmanPanel.add(iniSearchText, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
-		KalmanPanel.add(initialSearchS, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		//KalmanPanel.add(iniSearchText, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		//KalmanPanel.add(initialSearchS, new GridBagConstraints(0, 1, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 
-		KalmanPanel.add(alphaText, new GridBagConstraints(5, 2, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
-		KalmanPanel.add(alphaS, new GridBagConstraints(5, 3, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		//KalmanPanel.add(alphaText, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		//KalmanPanel.add(alphaS, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 
 		//KalmanPanel.add(betaText, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		//KalmanPanel.add(betaS, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 
-		KalmanPanel.add(lostlabel, new GridBagConstraints(5, 0, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
-		KalmanPanel.add(lostframe, new GridBagConstraints(5, 1, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		//KalmanPanel.add(lostlabel, new GridBagConstraints(5, 0, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+		//KalmanPanel.add(lostframe, new GridBagConstraints(5, 1, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		
-		KalmanPanel.add(mintracklength, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
-		KalmanPanel.add(tracklength, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+	//	KalmanPanel.add(mintracklength, new GridBagConstraints(0, 2, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
+		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
+	//	KalmanPanel.add(tracklength, new GridBagConstraints(0, 3, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
+	//			GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		
 		//KalmanPanel.add(maxSearchTextKalman, new GridBagConstraints(5, 2, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 		//		GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 	//	KalmanPanel.add(maxSearchKalman, new GridBagConstraints(5, 3, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
 	//			GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		
-		KalmanPanel.add(Restart, new GridBagConstraints(0, 5, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		KalmanPanel.add(Restart, new GridBagConstraints(0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.EAST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
-		KalmanPanel.add(Skeletontime, new GridBagConstraints(0, 4, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		
+		KalmanPanel.add(Skeletontime, new GridBagConstraints(3, 0, 2, 1, 1.0, 0.0, GridBagConstraints.EAST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
-		KalmanPanel.add(Timetrack, new GridBagConstraints(5, 4, 3, 1, 0.0, 0.0, GridBagConstraints.EAST,
+		
+		KalmanPanel.add(Timetrack, new GridBagConstraints(5, 4, 2, 1, 0.0, 0.0, GridBagConstraints.EAST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
 		KalmanPanel.setBorder(Kalmanborder);
 		

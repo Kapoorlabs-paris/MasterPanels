@@ -33,8 +33,6 @@ public class CovistoOneChFileLoader {
 		ChooseImage = new JComboBox<String>(blankimageNames);
 		 Border chooseoriginalfile = new CompoundBorder(new TitledBorder(bordertitle),
 				new EmptyBorder(layoutManager.Setlayout.c.insets));
-		 
-			
 		
 		 panelSingleChannel.add(ChooseImage, new GridBagConstraints(0, 0, 3, 1, 0.0, 0.0, GridBagConstraints.WEST,
 					GridBagConstraints.HORIZONTAL, new Insets(10, 10, 0, 10), 0, 0));
